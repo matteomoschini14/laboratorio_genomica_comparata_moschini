@@ -1,0 +1,7 @@
+
+GCA_943734735.2 Anopheles_gambiae Anogam
+GCA_943734845.1 Anopheles_funestus Anofun
+GCA_002204515.1 Aedes_aegypti Aedaeg
+GCA_016801865.2 Culex_pipiens Culpip
+GCF_036172545.1 Culicoides_brevitarsis Culbre
+
