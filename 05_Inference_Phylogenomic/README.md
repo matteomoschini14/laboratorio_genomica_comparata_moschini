@@ -5,7 +5,7 @@ The analysis aims to identify genes that exhibit similar selective pressures acr
 
 ## Dataset creation
 
-To perform the comparison, it is essential to have a comprehensive genomic dataset, in this case provided in the [mosquitoes.tsv](../00_practice/00_dataset/mosquitoes.tsv) file.
+To perform the comparison, it is essential to have a comprehensive genomic dataset, in this case provided in the [Dataset.tsv](../00_start/Dataset.tsv) file.
 
 To retrieve the genomes selected for the comparative analysis, a dedicated script was developed, as shown below:
 
