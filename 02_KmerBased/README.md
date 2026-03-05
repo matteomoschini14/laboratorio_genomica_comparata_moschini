@@ -3,9 +3,8 @@
 ## Reads quality check
 
 We used [*FastQC*](https://github.com/s-andrews/FastQC) to assess read quality. It is important to provide files in FASTA format.
-
-c
-#[assembly]
+```bash
+c#[assembly]
 fastqc SRR11672503_1.fastq.gz SRR11672503_2.fastq.gz
 ```
 
