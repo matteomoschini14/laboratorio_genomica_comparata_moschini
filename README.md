@@ -11,7 +11,7 @@ The repository contains:
 - [05_OG.Inference_Phylogenomic](./05_OG.Inference_Phylogenomic): Orthology inference and species tree reconstruction using orthogroups.
 - [06_DivergenceTime_Estimation](./06_DivergenceTime_Estimation): Estimation of divergence times based on the reconstructed phylogeny.
 - [07_GeneFamilies_Evolution](./07_GeneFamilies_Evolution): Analysis of gene family expansion and contraction dynamics using CAFE.
-- [09_GeneAnnotation](./09_GeneAnnotation): Comprehensive functional annotation and evolutionary analysis. Includes GO term assignment, positive selection analysis (CodeML), and pathway analysis (KEGG).
+- [08_GeneAnnotation](./08_GeneAnnotation): Comprehensive functional annotation and evolutionary analysis. Includes GO term assignment, positive selection analysis (CodeML), and pathway analysis (KEGG).
 
 All the folders contain the scripts and the main input files needed to perfomed the passages described in the respective README files.
 
