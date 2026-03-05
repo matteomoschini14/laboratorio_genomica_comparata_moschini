@@ -1,0 +1,39 @@
+K-mer statistics for: 
+ - Hash 1: "SRR11672503_1_paired.fastq"
+ - Hash 2: "ragtag.scaffold.fasta"
+
+Total K-mers in: 
+ - Hash 1: 12886899465
+ - Hash 2: 217639969
+
+Distinct K-mers in:
+ - Hash 1: 575702940
+ - Hash 2: 199250810
+
+Total K-mers only found in:
+ - Hash 1: 1610104696
+ - Hash 2: 6133668
+
+Distinct K-mers only found in:
+ - Hash 1: 382376588
+ - Hash 2: 5924458
+
+Shared K-mers:
+ - Total shared found in hash 1: 11276794769
+ - Total shared found in hash 2: 211506301
+ - Distinct shared K-mers: 193326352
+
+Distance between spectra 1 and 2 (all k-mers):
+ - Manhattan distance: 3.76452e+08
+ - Euclidean distance: 1.28358e+08
+ - Cosine distance: 0.00767061
+ - Canberra distance: 993.116
+ - Jaccard distance: 0.6539
+
+Distance between spectra 1 and 2 (shared k-mers):
+ - Manhattan distance: 3.84576e+08
+ - Euclidean distance: 1.92213e+08
+ - Cosine distance: 0.995352
+ - Canberra distance: 986.247
+ - Jaccard distance: 0.997307
+
