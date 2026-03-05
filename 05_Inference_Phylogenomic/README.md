@@ -231,7 +231,7 @@ Before running `AMAS.py`, it is crucial to modify the FASTA headers so they cont
 
 ```bash
 sed -E 's/\|.+$//' * #Preliminary step to standardize headers for the subsequent concatenation process
-~/GG_Laboratorio/99_scripts/AMAS.py concat -y nexus -i *.faa -f fasta -d aa -t conc_species_tree
+~/99_scripts/AMAS.py concat -y nexus -i *.faa -f fasta -d aa -t conc_species_tree
 ```
 
 ----
