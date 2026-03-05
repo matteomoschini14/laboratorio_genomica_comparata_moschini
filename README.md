@@ -8,7 +8,7 @@ The repository contains:
 - [02_KmerBased](./02_KmerBased):  Quality assessment of sequencing outputs using k-mer analysis.
 - [03_Genome_assembly](./03_Genome_assembly): De novo genome assembly workflow.
 - [04_Genome_annotation](./04_Genome_annotation): Genome annotation pipeline for the newly sequenced *Anopheles stephensi*.
-- [05_OG.Inference_Phylogenomic](./05_OG.Inference_Phylogenomic): Orthology inference and species tree reconstruction using orthogroups.
+- [05_Inference_Phylogenomic](./05_Inference_Phylogenomic): Orthology inference and species tree reconstruction using orthogroups.
 - [06_DivergenceTime_Estimation](./06_DivergenceTime_Estimation): Estimation of divergence times based on the reconstructed phylogeny.
 - [07_GeneFamilies_Evolution](./07_GeneFamilies_Evolution): Analysis of gene family expansion and contraction dynamics using CAFE.
 - [08_GeneAnnotation](./08_GeneAnnotation): Comprehensive functional annotation and evolutionary analysis. Includes GO term assignment, positive selection analysis (CodeML), and pathway analysis (KEGG).
