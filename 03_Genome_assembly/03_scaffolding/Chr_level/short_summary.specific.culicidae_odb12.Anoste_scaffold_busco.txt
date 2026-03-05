@@ -1,0 +1,30 @@
+# BUSCO version is: 6.0.0 
+# The lineage dataset is: culicidae_odb12 (Creation date: 2025-07-01, number of genomes: 13, number of BUSCOs: 7027)
+# Summarized benchmarking in BUSCO notation for file /home/STUDENTI/pietro.bacconi/00_lab_genomica_comparata/03_GenomeAssembly/03_scaffolding/Anoste_chr.fasta
+# BUSCO was run in mode: euk_genome_min
+# Gene predictor used: miniprot
+
+	***** Results: *****
+
+	C:98.7%[S:98.6%,D:0.1%],F:0.3%,M:1.0%,n:7027,E:2.2%	   
+	6938	Complete BUSCOs (C)	(of which 150 contain internal stop codons)		   
+	6929	Complete and single-copy BUSCOs (S)	   
+	9	Complete and duplicated BUSCOs (D)	   
+	22	Fragmented BUSCOs (F)			   
+	67	Missing BUSCOs (M)			   
+	7027	Total BUSCO groups searched		   
+
+Assembly Statistics:
+	3	Number of scaffolds
+	70	Number of contigs
+	202147033	Total length
+	0.003%	Percent gaps
+	88 Mbp	Scaffold N50
+	24 Mbp	Contigs N50
+
+
+Dependencies and versions:
+	hmmsearch: 3.4
+	bbtools: None
+	miniprot_index: 0.18-r281
+	miniprot_align: 0.18-r281
