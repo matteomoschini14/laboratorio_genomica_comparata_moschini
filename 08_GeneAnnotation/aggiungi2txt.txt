@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# --- CONFIGURAZIONE ---
+input_file="sum_results.tsv"
+output_file="final_metrics.tsv"
+n_sample=100  # <--- SOSTITUISCI CON IL TUO NUMERO DI OSSERVAZIONI
+
+# Scriviamo l'intestazione del nuovo file
+echo -e "Path\tlnL\tL\tE\tAIC\tBIC" > "$output_file"
+
+# Leggiamo il file riga per riga (saltando l'intestazione se presente)
+# Usiamo 'tail -n +2' per saltare la prima riga del file sum_results.tsv
+tail -n +2 "$input_file" | while IFS=$'\t' read -r path lnL L E; do
+    
+    # Rimuoviamo eventuali spazi bianchi
+    path=$(echo "$path" | xargs)
+    lnL=$(echo "$lnL" | xargs)
+
+    # Determiniamo il numero di parametri k in base alla cartella
+    if [[ "$path" == *"00_1L"* ]]; then
+        k=2
+    elif [[ "$path" == *"00_2L"* ]]; then
+        k=3
+    else
+        k=0
+    fi
+
+    # Calcolo AIC e BIC con 'bc'
+    if [[ "$k" -gt 0 && "$lnL" != "NA" ]]; then
+        # AIC = 2k - 2lnL
+        aic=$(echo "scale=4; 2*$k - 2*($lnL)" | bc -l)
+        
+        # BIC = k*ln(n) - 2lnL
+        # In bc, l(x) è il logaritmo naturale
+        bic=$(echo "scale=4; $k * l($n_sample) - 2*($lnL)" | bc -l)
+    else
+        aic="NA"
+        bic="NA"
+    fi
+
+    # Salviamo i risultati
+    echo -e "$path\t$lnL\t$L\t$E\t$aic\t$bic" >> "$output_file"
+done
+
+echo "Calcolo completato! Controlla il file: $output_file"
