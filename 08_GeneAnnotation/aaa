@@ -1,11 +1,2 @@
-# 1. Scarica direttamente l'eseguibile già pronto (versione 5.1.0 per Linux)
-wget https://github.com/hahnlab/CAFE5/releases/download/v5.1.0/cafe5-5.1.0-linux.tar.gz
-
-# 2. Estrai il file
-tar -zxvf cafe5-5.1.0-linux.tar.gz
-
-# 3. Entra nella cartella che è stata appena creata
-cd cafe5-5.1.0-linux
-
-# 4. Prova a lanciarlo
-./cafe5 --help
+#[tree]
+for k in {1..5}; do for n in {1..10}; do mkdir -p 00_2L/${k}K/${n}N; cafe5 -i GeneCount_ -t timetree.nwk -o 00_2L/${k}K/${n}N -y timetree_2Lambda.nwk -e./Error_model/Base_error_model.txt -k ${k}; done; done
