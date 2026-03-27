@@ -1,0 +1,62 @@
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* Atlas for matrix multiplication */
+#undef HAVE_ATLAS
+
+/* If a matrix multiplication library exists */
+#undef HAVE_BLAS
+
+/* Define to 1 if you have the `m' library (-lm). */
+#undef HAVE_LIBM
+
+/* OpenBLAS for matrix multiplication */
+#undef HAVE_OPENBLAS
+
+/* Intel MKL for matrix multiplication */
+#undef HAVE_MKL_H
+
+/* Have a vector exponential function */
+#undef HAVE_VECTOR_EXP
+
+/* Number of values simulator will generate before modifying lambda value */
+#undef LAMBDA_PERTURBATION_STEP_SIZE
+
+/* Number of times optimizer will restart if it fails to find legal values */
+#undef NUM_OPTIMIZER_INITIALIZATION_ATTEMPTS
+
+/* Precision of values optimizer will use before abandoning a set of values */
+#undef OPTIMIZER_HIGH_PRECISION
+
+/* Precision of values optimizer will use before abandoning a set of values */
+#undef OPTIMIZER_LOW_PRECISION
+
+/* Optimizer will stop after 12 iterations with no significant change in -ln
+   likelihood */
+#undef OPTIMIZER_STRATEGY_SIMILARITY_CUTOFF
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the home page for this package. */
+#undef PACKAGE_URL
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+/* Number of attempts optimizer will make to initialize to a good value */
+#undef PHASED_OPTIMIZER_PHASE1_ATTEMPTS
+
+/* Maximum family size to analyze before dropping to allocating heap memory */
+#undef MAX_STACK_FAMILY_SIZE
+
+#define ELPP_NO_CHECK_MACROS
+
