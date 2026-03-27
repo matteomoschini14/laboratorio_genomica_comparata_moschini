@@ -1,3 +1,11 @@
-CONDA_SUBDIR=osx-64 conda create -n cafe_intel -c bioconda cafe5
-conda activate cafe_intel
-conda config --env --set subdir osx-64
+# 1. Scarica direttamente l'eseguibile già pronto (versione 5.1.0 per Linux)
+wget https://github.com/hahnlab/CAFE5/releases/download/v5.1.0/cafe5-5.1.0-linux.tar.gz
+
+# 2. Estrai il file
+tar -zxvf cafe5-5.1.0-linux.tar.gz
+
+# 3. Entra nella cartella che è stata appena creata
+cd cafe5-5.1.0-linux
+
+# 4. Prova a lanciarlo
+./cafe5 --help
