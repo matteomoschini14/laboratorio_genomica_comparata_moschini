@@ -1,3 +1,0 @@
-grep '1>\*' Gamma_asr.tre | grep '2>\*' | grep '3>\*' | grep '4>_' | grep '5>_' | grep '6>_' | less
-
-grep '1>_' Gamma_asr.tre | grep '2>_' | grep '3>_' | grep '4>\*' | grep '5>\*' | grep '6>\*' | less
