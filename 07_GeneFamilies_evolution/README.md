@@ -145,6 +145,6 @@ Finally, we perform the calculation of the two indicators, which will be carried
 paste --delimiters=$"\t" all_L.txt <(while IFS=$'\t' read -r L k; do echo "2*$k + 2*$L" | bc; done < all_L.txt) <(while IFS=$'\t' read -r L k; do echo "$k*9.21 + 2*$L" | bc; done < all_L.txt) | sort -k4,4n > AIC_BIC.tsv
 ```
 
-This generates the [AIC_BIC.tsv](./Model_selection/AIC_BIC.tsv) file, which contains the best values from the 1-lambda and 2-lambda runs. Within the file, entries are sorted so that the first one represents the best-fitting model. In this case, it corresponds to `00_2L/2K`.
+This generates the [AIC_BIC.tsv](./Model_selection/AIC_BIC.tsv) file, which contains the best values from the 1-lambda and 2-lambda runs. Within the file, entries are sorted so that the first one represents the best-fitting model. In this case, it corresponds to `00_2L/3K`.
  
 ----
