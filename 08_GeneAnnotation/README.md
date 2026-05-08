@@ -58,21 +58,6 @@ done
 
 ----
 
-## Diamond 
-
-[Diamond](https://github.com/bbuchfink/diamond) is optimized for large input files of >1 million proteins. DIAMOND was utilized to perform the all-vs-all sequence alignment required for orthogroup inference. Its speed allows for the efficient processing of large-scale proteomic datasets to identify homologous sequences prior to clustering.
-
-The program may use quite a lot of memory and also temporary disk space. Should the program fail due to running out of either one, you need to set a lower value for the block size parameter -b.
-
-
-```bash
-diamond makedb --in /home/STUDENTI/giovanni.galassi3/GG_Laboratorio/05_OG.Inference_Phylogenomic/04_trimmed/longest_protein_OGs.txt --db ./nr_diamond
-```
-
-> Due to server issues we coudn't be able to run DIAMOND.
-
-----
-
 ## Gene Onthology Annotation
 
 To link our protein sequences to biological functions, we use Gene Ontology terms (GO terms).
@@ -82,7 +67,7 @@ GOterms annotation can be performes with a graet variety of programs, such as [P
 InterProScan is a software package that allows sequences to be scanned against the InterPro database's member consortium. It integrates predictive models (HMMs, regular expressions, and profiles) from multiple source databases into a single analysis pipeline.
 
 ```bash
-/home/PERSONALE/dbs/interproscan-5.65-97.0/interproscan.sh -i longest_protein_OGs.txt -goterms -pa -b longest_giovanni.tsv -cpu <N_CPUS>
+/home/PERSONALE/dbs/interproscan-5.65-97.0/interproscan.sh -i longest_protein_OGs.txt -goterms -pa -b longest_matteo.tsv -cpu <N_CPUS>
 ```
 
 > Unfortunately, due to server issue, we couldn't be able to run InterProScan.
@@ -108,7 +93,7 @@ To proceed with the functional enrichment analysis, a background file ([go_back.
 
 The background serves as the reference universe, representing the complete list of OrthoFinder-identified Orthogroups that have been assigned at least one functional annotation (GO term).
 
-To ensure compatibility with the R script, the raw input file (longest_giovanni.tsv) requires preprocessing. This involves removing extraneous metadata, pipe separators (|), and textual descriptions.
+To ensure compatibility with the R script, the raw input file (longest_matteo.tsv) requires preprocessing. This involves removing extraneous metadata, pipe separators (|), and textual descriptions.
 
 ```bash
 awk -F'\t' '{
@@ -122,7 +107,7 @@ END {
     groups[b[1]] = (groups[b[1]] ? groups[b[1]] "," b[2] : b[2])
   }
   for(g in groups) print g "\t" groups[g]
-}' <(cut -f1,14 longest_giovanni.tsv) | grep -v "-" > go_back.tsv
+}' <(cut -f1,14 longest_matteo.tsv) | grep -v "-" > go_back.tsv
 ```
 
 A filtering step was applied to the Gamma_asr.tre (derived from the best-fitting model identified via AIC/BIC analysis: `00_2L/2K`) output to retain only significant gene families. Trees were extracted based on specific asterisk (*) combinations indicating significant expansions or contractions.
@@ -130,18 +115,11 @@ A filtering step was applied to the Gamma_asr.tre (derived from the best-fitting
 This operation resulted in three separate files, created by filtering the main tree file for different evolutionary scenarios using grep.
 
 ```bash
-grep '<1>\*' Gamma_asr.tre | grep '<2>\*' | grep '<3>_' | grep '<4>_' | grep '<5>_' | grep '<6>_' > OG_malaria.txt
+grep '<10>\*' Gamma_asr.tre | grep '<2>_' | grep '<3>_' | grep '<9>_' | grep '<1>_' > OG_protozoa.txt
 
-grep '<1>_' Gamma_asr.tre | grep '<2>_' | grep '<3>\*' | grep '<4>\*' | grep '<5>_' | grep '<6>_' > OG_dengue.txt
+grep '<9>\*' Gamma_asr.tre | grep '<1>_' | grep '<10>_' | grep '<4>\_' | grep '<5>_' | grep '<6>_' > OG_virus.txt
 
-grep '<1>_' Gamma_asr.tre | grep '<2>_' | grep '<3>_' | grep '<4>_' | grep '<5>\*' | grep '<6>\*' > OG_westnile.txt
 ```
-
-The resulting files are:
-
-+ [OG_malaria.txt](../07_GeneFamilies_Evolution/CAFE_interesting_OG/OG_malaria.txt): Significance in Malaria Vectors;
-+ [OG_dengue.txt](../07_GeneFamilies_Evolution/CAFE_interesting_OG/OG_dengue.txt): Significance in Dengue Vectors;
-+ [OG_westnile.txt](../07_GeneFamilies_Evolution/CAFE_interesting_OG/OG_westnile.txt): Significance in West Nile Vectors.
 
 ### Enrichment Analysis
 
@@ -163,8 +141,8 @@ Then, the script was launched on RStudio
 library(tidyverse)
 library(topGO)
 
-gene_universe <- readMappings(file =
-                                "go_back_collapsed")
+gene_universe <- readMappings(file =  "go_back.tsv")
+                               
 geneUniverse <- names(gene_universe)
 
 genesOfInterest <- read.table("interesting.txt",header=FALSE)
