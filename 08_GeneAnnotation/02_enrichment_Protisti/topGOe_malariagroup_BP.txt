@@ -1,0 +1,27 @@
+GO.ID	Term	Annotated	Significant	Expected	Classic_Fisher
+GO:0000902	cell morphogenesis	75	2	0.08	0.0028
+GO:0032501	multicellular organismal process	358	3	0.4	0.0051
+GO:0030335	positive regulation of cell migration	5	1	0.01	0.0056
+GO:0001667	ameboidal-type cell migration	5	1	0.01	0.0056
+GO:0071526	semaphorin-plexin signaling pathway	6	1	0.01	0.0067
+GO:0006935	chemotaxis	6	1	0.01	0.0067
+GO:0023052	signaling	588	4	0.66	0.0108
+GO:0007154	cell communication	589	4	0.66	0.0108
+GO:0007623	circadian rhythm	11	1	0.01	0.0122
+GO:0048511	rhythmic process	12	1	0.01	0.0133
+GO:0007043	cell-cell junction assembly	12	1	0.01	0.0133
+GO:0045216	cell-cell junction organization	16	1	0.02	0.0178
+GO:0050804	modulation of chemical synaptic transmission	16	1	0.02	0.0178
+GO:0099177	regulation of trans-synaptic signaling	16	1	0.02	0.0178
+GO:0034329	cell junction assembly	19	1	0.02	0.0211
+GO:0009888	tissue development	22	1	0.02	0.0244
+GO:0007610	behavior	22	1	0.02	0.0244
+GO:0007275	multicellular organism development	245	2	0.27	0.0276
+GO:0006749	glutathione metabolic process	29	1	0.03	0.032
+GO:0098742	cell-cell adhesion via plasma-membrane adhesion molecules	33	1	0.04	0.0363
+GO:0016477	cell migration	50	2	0.06	0.0413
+GO:0099537	trans-synaptic signaling	43	1	0.05	0.0471
+GO:0007268	chemical synaptic transmission	43	1	0.05	0.0471
+GO:0098916	anterograde trans-synaptic signaling	43	1	0.05	0.0471
+GO:0097485	neuron projection guidance	44	1	0.05	0.0482
+GO:0007411	axon guidance	44	1	0.05	0.0482

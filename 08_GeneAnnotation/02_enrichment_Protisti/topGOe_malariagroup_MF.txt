@@ -1,0 +1,7 @@
+GO.ID	Term	Annotated	Significant	Expected	Classic_Fisher
+GO:0043539	protein serine/threonine kinase activator activity	5	1	0.01	0.007
+GO:0045296	cadherin binding	12	1	0.02	0.017
+GO:0008013	beta-catenin binding	12	1	0.02	0.017
+GO:0004364	glutathione transferase activity	19	1	0.03	0.026
+GO:0048018	receptor ligand activity	35	1	0.05	0.048
+GO:0030546	signaling receptor activator activity	36	1	0.05	0.049

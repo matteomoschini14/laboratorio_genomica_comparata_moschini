@@ -1,0 +1,5 @@
+GO.ID	Term	Annotated	Significant	Expected	Classic_Fisher
+GO:0016342	catenin complex	11	1	0.01	0.0078
+GO:0005912	adherens junction	17	1	0.01	0.012
+GO:0005911	cell-cell junction	41	1	0.03	0.0288
+GO:0070161	anchoring junction	52	1	0.04	0.0364
