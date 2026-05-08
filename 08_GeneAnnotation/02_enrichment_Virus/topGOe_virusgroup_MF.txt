@@ -1,0 +1,12 @@
+GO.ID	Term	Annotated	Significant	Expected	Classic_Fisher
+GO:0000977	RNA polymerase II transcription regulatory region sequence-specific DNA binding	342	3	0.55	0.014
+GO:0001067	transcription regulatory region nucleic acid binding	363	3	0.58	0.016
+GO:0000976	transcription cis-regulatory region binding	363	3	0.58	0.016
+GO:1990837	sequence-specific double-stranded DNA binding	378	3	0.6	0.018
+GO:0003700	DNA-binding transcription factor activity	380	3	0.61	0.018
+GO:0003690	double-stranded DNA binding	393	3	0.63	0.02
+GO:0043565	sequence-specific DNA binding	402	3	0.64	0.021
+GO:0004197	cysteine-type endopeptidase activity	17	1	0.03	0.027
+GO:0140110	transcription regulator activity	483	3	0.77	0.035
+GO:0003676	nucleic acid binding	929	4	1.48	0.044
+GO:0003677	DNA binding	532	3	0.85	0.044
