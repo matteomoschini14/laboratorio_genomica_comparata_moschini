@@ -38,12 +38,12 @@ assembly-stats Anoste_raw.fasta > Anoste_raw.stats
 
 #### Busco
 
-To evaluate the gene content quality, we used *BUSCO*, which compares the assembly against a pre-compiled dataset of genes expected to be present in the studied organism (in this case `$BUSCO/culicidae_odb12`). Busco was run in nucleotide version.
+To evaluate the gene content quality, we used *BUSCO*, which compares the assembly against a pre-compiled dataset of genes expected to be present in the studied organism (in this case `$BUSCO/diptera_odb12`). Busco was run in nucleotide version.
 
 ```bash
 #[sequence]
 export NUMEXPR_MAX_THREADS= 80
-busco -m geno -l $BUSCO/culicidae_odb12 -c 6 -o Anoste_raw.busco -i Anoste_raw.fasta
+busco -m geno -l $BUSCO/diptera_odb12 -c 6 -o Anoste_raw.busco -i Anoste_raw.fasta
 ```
 > N.B. Since BUSCO is not optimized for single-line FASTA files, it is essential to ensure that the input is in multi-line format.
 
