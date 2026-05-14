@@ -50,19 +50,19 @@ for k in {1..5}; do for n in {1..10}; do mkdir -p 00_1L/${k}K/${n}N; cafe5 -i Ge
 ```
 ----
 
-### Two-Lambda Analysis
+### Three-Lambda Analysis
 
 To allow for rate heterogeneity across the phylogeny, we performed a two-lambda analysis. This model assigns distinct turnover rates to specific lineages. To compute multiple $\lambda$ rates, you must define the number of distinct rate categories and assign them to specific species or clades.These assignments are specified in a separate tree file (distinct from the main ultrametric tree) passed via the -y flag. In this file, integers are used to map specific branches to their corresponding $\lambda$ category.
 
 ```bash
-(Anofun:1,(Anoste:1,((Culqui:2,Culpip:2):1,(Aedalb:1,Aedaeg:1):1):1):1);
+(Culbre:3,((Culpip:1,Aedaeg:1):1,(Anogam:2,(Anofun:2,Anoste:2):2):1):1);
 ```
 
 The execution script for the two-lambda analysis is provided below:
 
 ```bash
 #[tree]
-for k in {1..5}; do for n in {1..10}; do mkdir -p 00_2L/${k}K/${n}N; cafe5 -i GeneCount_ -t timetree.nwk -o 00_2L/${k}K/${n}N -y timetree_2Lambda.nwk -e./Error_model/Base_error_model.txt -k ${k}; done; done
+for k in {1..5}; do for n in {1..10}; do mkdir -p 00_2L/${k}K/${n}N; cafe5 -i GeneCount_ -t timetree.nwk -o 00_2L/${k}K/${n}N -y time_tree_3L.nwk -e./Error_model/Base_error_model.txt -k ${k}; done; done
 ```
 
 ----
@@ -145,6 +145,6 @@ Finally, we perform the calculation of the two indicators, which will be carried
 paste --delimiters=$"\t" all_L.txt <(while IFS=$'\t' read -r L k; do echo "2*$k + 2*$L" | bc; done < all_L.txt) <(while IFS=$'\t' read -r L k; do echo "$k*9.21 + 2*$L" | bc; done < all_L.txt) | sort -k4,4n > AIC_BIC.tsv
 ```
 
-This generates the [AIC_BIC.tsv](./Model_selection/AIC_BIC.tsv) file, which contains the best values from the 1-lambda and 2-lambda runs. Within the file, entries are sorted so that the first one represents the best-fitting model. In this case, it corresponds to `00_2L/3K`.
+This generates the [AIC_BIC.tsv](./Model_selection/AIC_BIC.tsv) file, which contains the best values from the 1-lambda and 2-lambda runs. Within the file, entries are sorted so that the first one represents the best-fitting model. In this case, it corresponds to `00_3L/4K`.
  
 ----
