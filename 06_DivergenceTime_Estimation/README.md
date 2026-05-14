@@ -14,7 +14,7 @@ The dating of the valid nodes, intended for the subsequent calibration, was comp
 
 ```text
 taxon1,taxon2,taxon3,taxon4 -108.3 
-taxon5,taxon6 -18
+taxon1,taxon1 -75.8
 ```
 
 With all parameters established, the final tree calibration can now be performed.
