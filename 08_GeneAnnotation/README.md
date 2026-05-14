@@ -110,7 +110,7 @@ END {
 }' <(cut -f1,14 longest_matteo.tsv) | grep -v "-" > go_back.tsv
 ```
 
-A filtering step was applied to the Gamma_asr.tre (derived from the best-fitting model identified via AIC/BIC analysis: `00_2L/2K`) output to retain only significant gene families. Trees were extracted based on specific asterisk (*) combinations indicating significant expansions or contractions.
+A filtering step was applied to the Gamma_asr.tre (derived from the best-fitting model identified via AIC/BIC analysis: `00_3L/4K`) output to retain only significant gene families. Trees were extracted based on specific asterisk (*) combinations indicating significant expansions or contractions.
 
 This operation resulted in three separate files, created by filtering the main tree file for different evolutionary scenarios using grep.
 
@@ -141,11 +141,11 @@ Then, the script was launched on RStudio
 library(tidyverse)
 library(topGO)
 
-gene_universe <- readMappings(file =  "go_back.tsv")
+gene_universe <- readMappings(file =  "go_backm.tsv")
                                
 geneUniverse <- names(gene_universe)
 
-genesOfInterest <- read.table("interesting.txt",header=FALSE)
+genesOfInterest <- read.table("<interesting_OG>",header=FALSE)
 list_interest1 <- list( "name_interest" = genesOfInterest)
 
 #upload of gene of interest
@@ -219,11 +219,7 @@ print(intersect(genesInTerm(topGO, "GO:0051289")$'GO:0051289', notext_biggest$V1
 
 The enrichment results are organized into three topGO folders, categorized by specific disease.
 
-The various files were formatted to ensure compatibility with REVIGO for the subsequent analysis step.
 
-```bash
-for i in *; do cut -f1,6 $i >> final_revigo.tsv; done
-```
 #### REVIGO
 
 Finally, we utilized REVIGO to visualize and summarize the functional enrichment results obtained from topGO. This tool allowed us to reduce the redundancy of the enriched Gene Ontology terms by clustering them based on semantic similarity, thereby facilitating the identification of the most representative biological themes.
