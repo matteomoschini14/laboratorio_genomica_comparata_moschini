@@ -62,7 +62,7 @@ The execution script for the two-lambda analysis is provided below:
 
 ```bash
 #[tree]
-for k in {1..5}; do for n in {1..10}; do mkdir -p 00_2L/${k}K/${n}N; cafe5 -i GeneCount_ -t timetree.nwk -o 00_2L/${k}K/${n}N -y time_tree_3L.nwk -e./Error_model/Base_error_model.txt -k ${k}; done; done
+for k in {1..5}; do for n in {1..10}; do mkdir -p 00_3L/${k}K/${n}N; cafe5 -i GeneCount_ -t timetree.nwk -o 00_2L/${k}K/${n}N -y time_tree_3L.nwk -e./Error_model/Base_error_model.txt -k ${k}; done; done
 ```
 
 ----
@@ -105,46 +105,17 @@ for folder in */; do lnL=$(grep "lnL" ${folder}/Base_results.txt | grep -oE "[0-
 for i in */; do cd $i; for folder in */; do lnL=$(grep "lnL" ${folder}/Gamma_results.txt | grep -oE "[0-9]*([\.,][0-9]*)?"); L=$(grep "Lambda" ${folder}/Gamma_results.txt | grep -oE "[0-9]*\.[0-9]*"); E=$(grep "Epsilon" ${folder}/Gamma_results.txt | grep -oE "[0-9]*\.[0-9]*"); A=$(grep "Alpha" ${folder}/Gamma_results.txt | grep -oE "[0-9]*\.[0-9]*"); echo -e "$lnL\t$L\t$E\t$A" >> sum_results.tsv; done; cd ..; done
 ```
 
-Upon completion of this step, the best likelihood values were extracted from each generated `sum_results.txt` file and consolidated into a new file named `all_L.txt`.
-```bash
-for f in */; do cut -f1 "$f"/sum_results.tsv | sort -n | head -n1; done > all_L.txt
-```
-
-The same procedure was also applied to the 2-lambda analysis.
-
-In all_L.txt files, the first likelihood value belongs to single-Gamma value run, the second to the run with two values, and so on. To perform the test, it is necessary to manually define the number of 'free parameters' for each run, which are determined by summing possible values assumed by Lambda and Gamma. 
-
-```bash
-00_1L/all_L.txt
-100007  2
-97485.3 3
-98129.7 4
-98290.9 5 
-98428.3 6
-
-00_2L/all_L.txt
-98345.6 3
-96613.3 4
-97170.6 5
-96840.9 6
-97544.1 7
-```
-
 It is also necessary to define natural logarithm ($\ln$) of trees' number reported in `Gamma_asr.tre` (or `Base_asr.tre`).
 
 ```bash
 grep "OG" Gamma_asr.tre | wc -l 
-> 10526
+> 8222
 
-ln(10526) = 9.26
+ln(8222) = 9.014
 ```
 
-Finally, we perform the calculation of the two indicators, which will be carried out separately for both the `00_1L` and `00_2L` runs, to then compare them and choose the best-fitting model. 
+Finally, we perform the calculation of the two indicators, which will be carried out separately for both the `00_1L` and `00_3L` runs, to then compare them and choose the best-fitting model. 
 
-```bash
-paste --delimiters=$"\t" all_L.txt <(while IFS=$'\t' read -r L k; do echo "2*$k + 2*$L" | bc; done < all_L.txt) <(while IFS=$'\t' read -r L k; do echo "$k*9.21 + 2*$L" | bc; done < all_L.txt) | sort -k4,4n > AIC_BIC.tsv
-```
-
-This generates the [AIC_BIC.tsv](./Model_selection/AIC_BIC.tsv) file, which contains the best values from the 1-lambda and 2-lambda runs. Within the file, entries are sorted so that the first one represents the best-fitting model. In this case, it corresponds to `00_3L/4K`.
+AIC and BIC were calculated for the lowest value of each Gamma of the same Lambda and compared the best fit model. The best model of each Lambda were compared and, in this case, the best fit model corresponds to `00_3L/4K`.
  
 ----
