@@ -57,7 +57,7 @@ Upon completion, the process generates the file hypo_anoste_raw.fasta, which was
 
 ### Quality assessment of the polished assembly
 
-Finally, a quality control assessment of the polished assembly was conducted using the same methods described in section [00_Assembly_raw](../00_Assembly_raw/README.md): N50, BUSCO, and Spectra-cn analysis.
+Finally, a quality control assessment of the polished assembly was conducted using the same methods described in section [00_Assembly_raw](../00_assembly_raw/README.md): N50, BUSCO, and Spectra-cn analysis.
 
 ```bash
 #[assembly]
@@ -65,7 +65,7 @@ assembly-stats Anoste_pol.fasta > Anoste_pol.stats
 
 #[sequence]
 export NUMEXPR_MAX_THREADS=80
-busco -m geno -l $Busco/culicidae_odb12 -c 8 -o Anoste_pol_busco -i Anoste_pol.fasta
+busco -m geno -l $Busco/diptera_odb12 -c 8 -o Anoste_pol_busco -i Anoste_pol.fasta
 
 #[kat]
 kat comp -t 8 -o Anoste_pol 'SRR11672503_1_paired.fastq SRR11672503_2_paired.fastq' Anoste_pol.fasta
