@@ -224,4 +224,3 @@ The enrichment results are organized into three topGO folders, categorized by sp
 
 Finally, we utilized REVIGO to visualize and summarize the functional enrichment results obtained from topGO. This tool allowed us to reduce the redundancy of the enriched Gene Ontology terms by clustering them based on semantic similarity, thereby facilitating the identification of the most representative biological themes.
 
-The REVIGO results are available in the [Revigo_results](./Revigo_results) folder.
